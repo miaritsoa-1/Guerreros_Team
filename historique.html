@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreros team</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Votre CSS personnalisé -->
+   <link rel="stylesheet" href="historique.css">
+   <link rel="stylesheet" href="/style/style2.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+
+  
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <a href="#home" class="logo-link">
+                <img src="/image/logo_finale.png" alt="Guerreros Logo" class="logo">
+                <span class="logo-text">Guerreros</span>
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" data-translate="home">Accueil</a>
+            <a href="historique.html"class="active"  data-translate="history">Histoire</a>
+            <a href="Apropos.html" data-translate="whoarewe">A propos</a>
+            <a href="calendrier.html" data-translate="schedule">Programme</a>
+            <a href="#contact" data-translate="contact">Contact</a>
+            <a href="inscription.html" class="join-button nav-button" data-translate="join">Rejoignez-Nous</a>  
+            <div class="custom-select">
+                <div class="selected-option">
+                    <img src="/image/french_flag.png" alt="Français" class="flag-icon" id="selected-flag"> 
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectLanguage('fr')" id="fr-option">
+                        <img src="/image/french_flag.png" alt="Français" class="flag-icon" data-flag="fr">
+                    </div>
+                    <div class="option" onclick="selectLanguage('en')" id="en-option">
+                        <img src="/image/english_flag.png" alt="English" class="flag-icon" data-flag="en">
+                    </div>
+                </div>                
+            </div>
+        </nav>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <!--Contenus-->
+    <div class=" title-class">
+        <h1 class="text-center"><strong>HISTORIQUES</strong></h1>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card4">
+                    <img src="./images/img1.png" class="card-img-top" alt="Card image">
+                    <a href="histoire-club.html" id="cardBtn" data-translate="Guerreros">Histoire de Guerreros Team</a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card4">
+                    <img src="./images/img1.png" class="card-img-top" alt="Card image">
+                    <a href="histoire_JJB.html" id="cardBtn" data-translate="Bresilien">Histoire du Jiu-Jitsu Bresilien</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contenus-->
+
+   
+
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/style/script/header.js"></script>
+    <script src="traduction.js"></script>
+</body>
+</html>

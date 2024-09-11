@@ -1,0 +1,111 @@
+/* Styles généraux */
+/* body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #000000;
+} */
+
+.histoire {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    text-align: center;
+}
+
+.fondateur , 
+.fondation {
+    font-size: 30px;
+    -webkit-text-stroke: 0.2px white;
+    margin: 0 20%;
+}
+
+h2 {
+    font-size: 1.7rem;
+    color: red;
+    -webkit-text-stroke: 0.2px white;
+    text-align: justify;
+}
+
+.page-header{
+    font-size: 4.5rem;
+    color: red;
+    font-weight: 500;
+    margin-top: 10rem;
+    margin-bottom: 4rem;
+}
+
+p {
+    display: block;
+    color: #000000;
+    text-align: justify;
+    align-items: center;
+    max-width: 100%;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.responsive-img,
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+
+/* Media queries pour différents types d'appareils */
+
+/* Pour les écrans de bureau (PC) */
+@media (min-width: 1024px) {
+    .histoire {
+        font-size: 50px;
+    }
+
+    .fondation,
+    .fondateur {
+        font-size: 30px;
+        margin: 0 20rem;
+    }
+
+    .texte1,
+    .texte2 {
+        margin: 0 20rem;
+    }
+}
+
+/* Pour les tablettes */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .histoire {
+        font-size: 40px;
+    }
+
+    .fondation,
+    .fondateur {
+        font-size: 24px;
+        margin: 0 10rem;
+    }
+
+    .texte1,
+    .texte2 {
+        margin: 0 10rem;
+    }
+}
+
+/* Pour les téléphones */
+@media (max-width: 767px) {
+    .histoire {
+        font-size: 30px;
+    }
+
+    .fondation,
+    .fondateur {
+        font-size: 20px;
+        margin: 0 1rem;
+    }
+
+    .texte1,
+    .texte2 {
+        margin: 0 1rem;
+    }
+}

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme</title>
+    <link rel="stylesheet" href="/style/style2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+ 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            margin-top: 3rem;
+        }
+       
+        .les_tous{
+            margin-bottom: 4rem;
+            margin-top: 4rem;
+        }
+        span{
+            color: #4CAF50 !important;
+        }
+        
+       
+        .titre {
+            color: red;
+            text-align: center;
+            font-size: 2rem;
+        }
+        #calendrier {
+            width: 80%;
+            background-image: url(calendrier/image/Group\ 217.png);
+            font-size: 24px;
+            height: 70vh;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #calendrier th, #calendrier td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            color: white;
+        }
+        #calendrier th {
+            background-color: #4CAF50;
+            color: white;
+        }
+     
+        .admin-only {
+            display: none;
+        }
+        .admin-mode .admin-only {
+            display: table-cell;
+        }
+        .modified-time {
+            font-weight: bold;
+            color: #fff !important;
+        }
+        .current-session td:nth-child(2) {
+    background-color: red !important;
+    color: #fff !important;
+}
+#admin-button {
+    width: 2%;
+  
+  height: 2px;
+   
+    font-family: inherit;
+    float: right;
+    border: none;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #4CAF50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    transition: all 0.3s ease;
+}
+
+button {
+    text-align: center;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    #admin-button {
+        width: 20%;
+        font-size: 0.9rem;
+    }
+    #calendrier{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #admin-button {
+        width: 20%;
+        font-size: 0.8rem;
+        float: none;
+        margin: 10px auto;
+    }
+}
+#admin-button:hover {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+}
+
+#admin-button::before {
+    width: 100%;
+}
+
+
+#calendrier th:last-child,
+#calendrier td:last-child {
+    text-align: center;
+    padding: 0;
+    color: white;
+}
+
+#calendrier th:last-child {
+    width: 200px;
+}
+
+        #admin-panel {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: white;
+        }
+        #admin-panel input {
+            margin: 5px;
+            padding: 8px;
+        }
+        /* Nouveau style pour les boutons "Modifier" */
+        button {
+            color: #090909;
+            padding: 0.7em 1.7em;
+            font-size: 18px;
+            border-radius: 0.5em;
+            background: #e8e8e8;
+            cursor: pointer;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s;
+        }
+        
+        button:active {
+            color: #666;
+            box-shadow: inset 2px 2px 6px #c5c5c5, inset 0px 0px 2px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo-container">
+            <a href="#home" class="logo-link">
+                <img src="/image/logo_finale.png" alt="Guerreros Logo" class="logo">
+                <span class="logo-text">Guerreros</span>
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html"  data-translate="home">Accueil</a>
+            <a href="historique.html" data-translate="history">Histoire</a>
+            <a href="Apropos.html" data-translate="whoarewe">A propos</a>
+            <a href="calendrier.html" class="active" data-translate="schedule">Programme</a>
+            <a href="#contact" data-translate="contact">Contact</a>
+            <a href="inscription.html" class="join-button nav-button" data-translate="join">Rejoignez-Nous</a>  
+            <div class="custom-select">
+                <div class="selected-option">
+                    <img src="/image/french_flag.png" alt="Français" class="flag-icon" id="selected-flag"> 
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectLanguage('fr')" id="fr-option">
+                        <img src="/image/french_flag.png" alt="Français" class="flag-icon" data-flag="fr">
+                    </div>
+                    <div class="option" onclick="selectLanguage('en')" id="en-option">
+                        <img src="/image/english_flag.png" alt="English" class="flag-icon" data-flag="en">
+                    </div>
+                </div>                
+            </div>
+        </nav>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+        <main class="les_tous">
+            <div class="titre"><h1 data-translate="scheduleTitle">NOTRE PROGRAMME</h1></div>
+          
+            <table id="calendrier">
+                <tr>
+                    <th data-translate="day">JOUR</th>
+                    <th data-translate="time">HEURE</th>
+                    <th>
+                        <span data-translate="location">LIEU</span>
+                        <button id="admin-button" onclick="showAdminPanel()">...</button>
+                    </th>
+                    <th class="admin-only" data-translate="action">Action</th>
+                </tr>
+                <tr data-jour="LUNDI" data-heures="18:00-20:00">
+                    <td data-translate="day1">LUNDI</td>
+                    <td data-translate="times1">18h-20h</td>
+                    <td>Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+                <tr data-jour="MARDI" data-heures="12:00-14:00,18:00-20:00">
+                    <td data-translate="day2">MARDI</td>
+                    <td><span data-translate="times2">12h-14h</span><br><span data-translate="times1">18h-20h</span></td>
+                    <td>DOJO Anosy<br>Jules Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+                <tr data-jour="MERCREDI" data-heures="13:00-15:00,15:00-17:00">
+                    <td data-translate="day3">MERCREDI</td>
+                    <td><span data-translate="times3">13h-15h</span><br><span data-translate="times5">15h-17h</span></td>
+                    <td>Jules Ferry Faravohitra (JJB)<br>Jules Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+                <tr data-jour="JEUDI" data-heures="12:00-14:00,18:00-20:00">
+                    <td data-translate="day4">JEUDI</td>
+                    <td><span data-translate="times2">12h-14h</span><br><span data-translate="times1">18h-20h</span></td>
+                    <td>DOJO Anosy<br>Jules Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+                <tr data-jour="VENDREDI" data-heures="18:00-20:00">
+                    <td data-translate="day5">VENDREDI</td>
+                    <td data-translate="times1">18h-20h</td>
+                    <td>Jules Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+                <tr data-jour="SAMEDI" data-heures="10:00-12:00,13:00-15:00,15:00-17:00">
+                    <td data-translate="day6">SAMEDI</td>
+                    <td>
+                        <span data-translate="times4">10h-12h</span><br>
+                        <span data-translate="times3">13h-15h</span><br>
+                        <span data-translate="times5">15h-17h</span>
+                    </td>
+                    <td>DOJO Ambohibao<br>Jules Ferry Faravohitra (JJB)<br>Jules Ferry Faravohitra (JJB)</td>
+                    <td class="admin-only">
+                        <button onclick="modifyTime(this)" data-translate="modify">Modifier</button>
+                    </td>
+                </tr>
+            </table>
+        </main>
+        
+        <div id="admin-panel" style="display: none;">
+            <h3 data-translate="adminPanel">Panneau d'administration</h3>
+            <input type="text" id="new-time" data-translate="newTimeplaceholder" placeholder="Nouvelle heure (ex: 18:00-20:00)">
+            <button onclick="updateTime()" data-translate="updateTime">Modifier l'heure</button>
+            <button onclick="deleteModification()" data-translate="deleteModification">Supprimer la modification</button>
+        </div>
+
+<script>
+ const AUTHORIZED_EMAIL = "faly";
+const AUTHORIZED_PASSWORD = "123";
+const STORAGE_KEY = "modifiedSchedule";
+let currentRow;
+let isAdminMode = false;
+
+function loadModifiedSchedule() {
+    const storedSchedule = localStorage.getItem(STORAGE_KEY);
+    return storedSchedule ? JSON.parse(storedSchedule) : {};
+}
+
+function saveModifiedSchedule(schedule) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(schedule));
+}
+
+function updateScheduleDisplay() {
+    const modifiedSchedule = loadModifiedSchedule();
+    const rows = document.querySelectorAll('#calendrier tr[data-heures]');
+    rows.forEach(row => {
+        const day = row.cells[0].innerText;
+        if (modifiedSchedule[day]) {
+            row.setAttribute('data-heures', modifiedSchedule[day]);
+            row.cells[1].innerHTML = modifiedSchedule[day].replace(/,/g, '<br>');
+            row.classList.add('modified-time');
+        } else {
+            row.classList.remove('modified-time');
+        }
+    });
+}
+
+function showAdminPanel() {
+    const email = prompt("Entrez votre adresse e-mail pour accéder au panneau d'administration:");
+    if (email === AUTHORIZED_EMAIL) {
+        const password = prompt("Entrez votre mot de passe:");
+        if (password === AUTHORIZED_PASSWORD) {
+            isAdminMode = !isAdminMode;
+            document.body.classList.toggle('admin-mode');
+            alert(isAdminMode ? "Mode administrateur activé." : "Mode administrateur désactivé.");
+        } else {
+            alert("Mot de passe incorrect.");
+        }
+    } else {
+        alert("Accès refusé : l'adresse e-mail ne correspond pas.");
+    }
+}
+
+function modifyTime(button) {
+    if (!isAdminMode) return;
+    currentRow = button.closest('tr');
+    document.getElementById('admin-panel').style.display = 'block';
+    document.getElementById('new-time').value = currentRow.getAttribute('data-heures');
+}
+
+function updateTime() {
+    const newTime = document.getElementById('new-time').value;
+    if (newTime && currentRow) {
+        const day = currentRow.cells[0].innerText;
+        currentRow.setAttribute('data-heures', newTime);
+        currentRow.cells[1].innerHTML = newTime.replace(/,/g, '<br>');
+        currentRow.classList.add('modified-time');
+
+        const modifiedSchedule = loadModifiedSchedule();
+        modifiedSchedule[day] = newTime;
+        saveModifiedSchedule(modifiedSchedule);
+
+        updateScheduleDisplay();
+        alert("Horaire modifié avec succès.");
+        document.getElementById('admin-panel').style.display = 'none';
+    }
+}
+
+function deleteModification() {
+    if (currentRow) {
+        const day = currentRow.cells[0].innerText;
+        const modifiedSchedule = loadModifiedSchedule();
+        delete modifiedSchedule[day];
+        saveModifiedSchedule(modifiedSchedule);
+
+        currentRow.classList.remove('modified-time');
+        currentRow.setAttribute('data-heures', currentRow.dataset.heures);
+        currentRow.cells[1].innerHTML = currentRow.dataset.heures.replace(/,/g, '<br>');
+
+        updateScheduleDisplay();
+        alert("Modification supprimée.");
+        document.getElementById('admin-panel').style.display = 'none';
+    }
+}
+
+function checkCurrentTime() {
+    const now = new Date();
+    const currentDay = now.toLocaleString('fr-FR', { weekday: 'long' }).toUpperCase();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    
+    const rows = document.querySelectorAll('#calendrier tr[data-heures]');
+    rows.forEach(row => {
+        const rowDay = row.cells[0].innerText;
+        if (rowDay === currentDay) {
+            const heures = row.getAttribute('data-heures').split(',');
+            heures.forEach((plage, index) => {
+                const [start, end] = plage.split('-').map(time => {
+                    const [hour, minute] = time.split(':');
+                    return { hour: parseInt(hour), minute: parseInt(minute) };
+                });
+
+                if ((currentHour > start.hour || (currentHour === start.hour && currentMinute >= start.minute)) &&
+                    (currentHour < end.hour || (currentHour === end.hour && currentMinute <= end.minute))) {
+                    
+                    row.classList.add('current-session');
+                    row.cells[1].style.backgroundColor = 'red';
+                    
+                    if (Notification.permission === "granted") {
+                        new Notification("L'heure de l'entraînement a commencé", {
+                            body: `${rowDay} ${plage}`,
+                            icon: '/path/to/icon.png'
+                        });
+                    } else if (Notification.permission !== "denied") {
+                        Notification.requestPermission().then(permission => {
+                            if (permission === "granted") {
+                                new Notification("L'heure de l'entraînement a commencé", {
+                                    body: `${rowDay} ${plage}`,
+                                    icon: '/path/to/icon.png'
+                                });
+                            }
+                        });
+                    }
+                } else {
+                    if (index === heures.length - 1) {
+                        row.classList.remove('current-session');
+                        row.cells[1].style.backgroundColor = '';
+                    }
+                }
+            });
+        } else {
+            row.classList.remove('current-session');
+            row.cells[1].style.backgroundColor = '';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateScheduleDisplay();
+    checkCurrentTime();
+    setInterval(checkCurrentTime, 60000); // Check every minute
+
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+    }
+});
+</script>
+
+
+       <!-- Footer -->
+       <footer id="contact">
+       <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4 data-translate="followUs">Follow us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:Guerrerosmadagascar@gmail.com">Guerrerosmadagascar@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+261335266611">+261 33 52 666 11</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Anosy, Antananarivo</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/GuerrerosTeamMadagascar/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/guerreros_team_madagascar?igsh=eWtzYWJ5c216b21u"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="openingDays">Opening Days</h4>
+                    <ul>
+                        <li><a href="#" data-translate="monday">Monday</a></li>
+                        <li><a href="#" data-translate="tuesday">Tuesday</a></li>
+                        <li><a href="#" data-translate="wednesday">Wednesday</a></li>
+                        <li><a href="#" data-translate="thursday">Thursday</a></li>
+                        <li><a href="#" data-translate="friday">Friday</a></li>
+                        <li><a href="#" data-translate="saturday">Saturday</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="quickLink">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-translate="home">Home</a></li>
+                        <li><a href="#history" data-translate="history">History</a></li>
+                        <li><a href="#whoarewe" data-translate="whoarewe">Who We Are?</a></li>
+                        <li><a href="#schedule" data-translate="whoarewe">Schedules</a></li>
+                        <li><a href="#contact" data-translate="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="popularLink">Popular Links</h4>
+                    <ul>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container border-top border-dark pt-5">
+            <hr class="separator">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-white font-weight-bold" href="#">Guerreros Team</a>. All Rights Reserved. Designed by
+                <a class="text-white font-weight-bold"><span>Guerreros Students PNM 2024</span></a>
+            </p>
+        </div>
+    </footer>
+</footer>
+
+    <script src="/style/script/header.js"></script>
+    <script src="traduction.js"></script>
+</body>
+</html>
+

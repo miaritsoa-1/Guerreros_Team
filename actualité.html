@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreros Team Club</title>
+    <link rel="stylesheet" href="/styles/actualité.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/style/style2.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <a href="#home" class="logo-link">
+                <img src="/image/logo_finale.png" alt="Guerreros Logo" class="logo">
+                <span class="logo-text">Guerreros</span>
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="active" data-translate="home">Accueil</a>
+            <a href="historique.html" data-translate="history">Histoire</a>
+            <a href="Apropos.html" data-translate="whoarewe">A propos</a>
+            <a href="calendrier.html" data-translate="schedule">Programme</a>
+            <a href="#contact" data-translate="contact">Contact</a>
+            <a href="inscription.html" class="join-button nav-button" data-translate="join">Rejoignez-Nous</a>   
+            <div class="custom-select">
+                <div class="selected-option">
+                    <img src="/image/french_flag.png" alt="Français" class="flag-icon" id="selected-flag"> 
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectLanguage('fr')" id="fr-option">
+                        <img src="/image/french_flag.png" alt="Français" class="flag-icon" data-flag="fr">
+                    </div>
+                    <div class="option" onclick="selectLanguage('en')" id="en-option">
+                        <img src="/image/english_flag.png" alt="English" class="flag-icon" data-flag="en">
+                    </div>
+                </div>                
+            </div>
+        </nav>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="header">
+        <h2 id="h2-title" data-translate="h2-title">Bienvenue chez</h2>
+        <h1 id="h1-title" data-translate="h1-title">GUERREROS TEAM</h1>
+    </div>
+
+    <main>
+        <div class="actualite">
+            <img src="/images/image Actualité/Actualité_1.png" alt="Actualité 1">
+            <img src="/images/image Actualité/actualité_2  1.png" alt="Actualité 2">
+            <img src="/images/image Actualité/actualité_3.png" alt="Actualité 3">
+        </div>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video controls>
+                    <source src="/images/image Actualité/jjb.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+                </video>
+            </div>
+            <p data-translate="video">Loïc et Kevin pratiquent le JJB, ils sont très motivés. Pour eux,<br>il faut suivre nos rêves pour arriver à nos destins</p>
+        </div>
+
+        <div class="dojo">
+            <div class="dojo-item">
+                <img src="/images/image Actualité/ambohibao.jpg" alt="Dojo Ambohibao">
+                <p>Dojo Ambohibao</p>
+            </div>
+            <div class="dojo-item">
+                <img src="/images/image Actualité/faravohitra.jpg" alt="Dojo Faravohitra">
+                <p>Dojo Faravohitra</p>
+            </div>
+            <div class="dojo-item">
+                <img src="/images/image Actualité/anosy.jpg" alt="Dojo Anosy">
+                <p>Dojo Anosy</p>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4 data-translate="followUs">Follow us</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:Guerrerosmadagascar@gmail.com">Guerrerosmadagascar@gmail.com</a></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+261335266611">+261 33 52 666 11</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> Anosy, Antananarivo</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/GuerrerosTeamMadagascar/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/guerreros_team_madagascar?igsh=eWtzYWJ5c216b21u"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-translate="openingDays">Opening Days</h4>
+                        <ul>
+                            <li><a href="#" data-translate="monday">Monday</a></li>
+                            <li><a href="#" data-translate="tuesday">Tuesday</a></li>
+                            <li><a href="#" data-translate="wednesday">Wednesday</a></li>
+                            <li><a href="#" data-translate="thursday">Thursday</a></li>
+                            <li><a href="#" data-translate="friday">Friday</a></li>
+                            <li><a href="#" data-translate="saturday">Saturday</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-translate="quickLink">Quick Links</h4>
+                        <ul>
+                            <li><a href="#home" data-translate="home">Home</a></li>
+                            <li><a href="#history" data-translate="history">History</a></li>
+                            <li><a href="#whoarewe" data-translate="whoarewe">Who We Are?</a></li>
+                            <li><a href="#schedule" data-translate="whoarewe">Schedules</a></li>
+                            <li><a href="#contact" data-translate="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-translate="popularLink">Popular Links</h4>
+                        <ul>
+                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Lorem</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container border-top border-dark pt-5">
+                <hr class="separator">
+                <p class="m-0 text-center text-white">
+                    &copy; <a class="text-white font-weight-bold" href="#">Guerreros Team</a>. All Rights Reserved. Designed by
+                    <a class="text-white font-weight-bold"><span>Guerreros Students PNM 2024</span></a>
+                </p>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="/style/script/header.js"></script>
+        <script src="traduction.js"></script>
+</body>
+</html>

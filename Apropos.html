@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreros Team</title>
+    <link rel="stylesheet" href="/style/style2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/css/slide.css">
+</head>
+<body>
+<!-- start header -->
+    <header id="navbar">
+        <div class="logo-container">
+            <a href="#home" class="logo-link">
+                <img src="/image/logo_finale.png" alt="Guerreros Logo" class="logo">
+                <span class="logo-text">Guerreros</span>
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html"  data-translate="home">Accueil</a>
+            <a href="historique.html" data-translate="history">Histoire</a>
+            <a href="Apropos.html" class="active" data-translate="whoarewe">A propos</a>
+            <a href="calendrier.html" data-translate="schedule">Programme</a>
+            <a href="#contact" data-translate="contact">Contact</a>
+            <a href="inscription.html" class="join-button nav-button" data-translate="join">Rejoignez-Nous</a>  
+            <div class="custom-select">
+                <div class="selected-option">
+                    <img src="/image/french_flag.png" alt="Français" class="flag-icon" id="selected-flag"> 
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectLanguage('fr')" id="fr-option">
+                        <img src="/image/french_flag.png" alt="Français" class="flag-icon" data-flag="fr">
+                    </div>
+                    <div class="option" onclick="selectLanguage('en')" id="en-option">
+                        <img src="/image/english_flag.png" alt="English" class="flag-icon" data-flag="en">
+                    </div>
+                </div>                
+            </div>
+        </nav>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header> 
+    <!-- Ending header -->
+    <!-- start who we are -->
+        
+    <section >
+        <h1 class="h11">Bonjour, nous sommes &nbsp; GUERREROS TEAM</h1>
+        <div class="content">
+            <div class="text-section">
+                <p data-translate="whoweareParagraphe">Notre team GUERREROS est un jeune club de jiu-jitsu brésilien,
+                     de pancrace et de MMA, situé dans les régions Analamanga et Boeny.
+                      Le club aspire à éduquer les jeunes et les moins jeunes dans les 
+                      sports de combats, en mettant en valeur : le respect, la solidarité,
+                       l’excellence, la maitrise de soi, le dépassement de soi, la fraternité.
+                        Guerreros Team vise à exceller sur le plan national, continental et
+                         international et porter des jeunes talentueux dans les disciplines 
+                         du Jiu Jitsu Brésilien, le Grappling et le MMA. Le club participe 
+                         régulièrement au championnat mondial de Jiu-jitsu à Abu Dhabi et
+                          au championnat d’Afrique à l’Ile Maurice pour garder sa présence en dehors.</p>
+            </div>
+            <div class="carousel">
+                <img id="carousel-image" src="/image/Carroussel1.jpg" alt="Image 1">
+            
+            </div>
+        </div>
+ 
+    
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            "/image/img1.jpg",
+            "/image/img2.jpg",
+            "/image/img3.png"
+        ];
+        
+        function showImage(index) {
+            const imageElement = document.getElementById("carousel-image");
+            imageElement.src = images[index];
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        // Fonction pour démarrer le défilement automatique
+        function startCarousel() {
+            setInterval(nextImage, 3000); // Change l'image toutes les 3 secondes
+        }
+        
+        // Démarre le carrousel automatiquement lors du chargement de la page
+        window.onload = startCarousel;
+        </script> 
+
+
+    <section id="history">
+        <div id="apropos">
+            <div class="container values-container">
+                <h1 data-translate="valuesTitle">NOS VALEURS</h1>
+                <h5 data-translate="slogan">"Forger le corps et l'esprit avec l'ÉQUIPE GUERREROS"</h5>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="/image/respect.png" alt="Respect">
+                        <div class="card-content">
+                            <h4 data-translate="respect">Respect</h4>
+                            <p data-translate="respectDesc">Maintenir la rigueur personnelle dans l'entraînement et la vie quotidienne.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/image/solidarity.png" alt="Solidarity">
+                        <div class="card-content">
+                            <h4  data-translate="solidarity">Solidarité</h4>
+                            <p data-translate="solidarityDesc">Unis, nous sommes invincibles, chaque membre renforce le collectif.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/image/Excellence (2).png" alt="Excellence">
+                        <div class="card-content">
+                            <h4 data-translate="excellence">Excellence</h4>
+                            <p data-translate="excellenceDesc">Ne jamais abandonner, même face à l'adversité.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/image/groupe1.png" alt="Fraternity">
+                        <div class="card-content">
+                            <h4 data-translate="fraternity">Fraternité</h4>
+                            <p  data-translate="fraternityDesc">Ensemble, nous sommes invincibles, chaque membre renforce le collectif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="swiper mySwiper">
+                <h1  class="partie_titre">POURQUOI REJOINDRE LE GUERREROS TEAM?</h1>
+                <div class="swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="card__image">
+                            <img src="/image/feature-1 1.png" alt="card image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__title"  data-translate="slide1Title">Développement</span>
+                            <p class="card__text" data-translate="slide1Text">Motivés par le désir de partager, d'apprendre et de progresser, nos membres se consacrent non seulement au développement de notre discipline, mais aussi à leur propre épanouissement personnel. </p>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="card__image">
+                            <img src="/image/feature-2 1.png" alt="card image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__title" data-translate="slide2Title">Affiliation</span>
+                            <p class="card__text" data-translate="slide2Text">En 2024, le club s'est affilié au club canadien 374 MMA, renforçant ainsi sa démarche d'amélioration continue après la visite de Sensei Radafy Ranaivo à Madagascar, accompagné de la légende du Jiu-Jitsu Brésilien, Royce Gracie. Partageant des valeurs communes</p>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="card__image">
+                            <img src="/image/feature-3 1.png" alt="card image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__title"  data-translate="slide3Title">Palmères</span>
+                            <p class="card__text" data-translate="slide3Text">
+                                Champions de toutes les compétitions à Madagascar
+                                Double CHAMPION D’AFRIQUE
+                                5 FOIS CHAMPION DE L’OCEAN INDIEN</p>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="card__image">
+                            <img src="/image/feature-4 1.png" alt="card image">
+                        </div>
+                        <div class="card__content">
+                            <span class="card__title"  data-translate="slide4Title">Calendrier de formation</span>
+                            <p class="card__text" data-translate="slide4Text">Nos formations sont le pilier de votre 
+                                succès dans et en dehors du ring."
+                                Mettez en avant que la formation aide
+                                non seulement sur le plan sportif, mais 
+                                aussi sur le plan personnel.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </section>
+
+    <!-- Ending who we are -->
+
+    <!-- start footer -->
+
+            <!-- Footer -->
+
+<footer id="contact">
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4 data-translate="followUs">Follow us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:Guerrerosmadagascar@gmail.com">Guerrerosmadagascar@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+261335266611">+261 33 52 666 11</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Anosy, Antananarivo</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/GuerrerosTeamMadagascar/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/guerreros_team_madagascar?igsh=eWtzYWJ5c216b21u"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="openingDays">Opening Days</h4>
+                    <ul>
+                        <li><a href="#" data-translate="monday">Monday</a></li>
+                        <li><a href="#" data-translate="tuesday">Tuesday</a></li>
+                        <li><a href="#" data-translate="wednesday">Wednesday</a></li>
+                        <li><a href="#" data-translate="thursday">Thursday</a></li>
+                        <li><a href="#" data-translate="friday">Friday</a></li>
+                        <li><a href="#" data-translate="saturday">Saturday</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="quickLink">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-translate="home">Home</a></li>
+                        <li><a href="#history" data-translate="history">History</a></li>
+                        <li><a href="#whoarewe" data-translate="whoarewe">Who We Are?</a></li>
+                        <li><a href="#schedule" data-translate="whoarewe">Schedules</a></li>
+                        <li><a href="#contact" data-translate="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-translate="popularLink">Popular Links</h4>
+                    <ul>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Lorem</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container border-top border-dark pt-5">
+            <hr class="separator">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-white font-weight-bold" href="#">Guerreros Team</a>. All Rights Reserved. Designed by
+                <a class="text-white font-weight-bold"><span>Guerreros Students PNM 2024</span></a>
+            </p>
+        </div>
+    </footer>
+</footer>
+
+     <!-- ending footer -->
+
+     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+     <script src="/style/script/header.js"></script>
+     <script src="traduction.js"></script>
+     <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+</body>
+</html>
